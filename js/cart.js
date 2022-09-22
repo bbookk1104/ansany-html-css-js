@@ -16,9 +16,16 @@ selectAll.on("change",function(){
 //장바구니 개별선택 시
 selectOne.on("change",function(){
     if($(this).prop("checked")){
-        if(selectOne.prop("checked")){
+        /* let status = true;
+        selectOne.each(function(index,item){
+            if($(item).prop("checked",false)){
+                status = false;
+            }
+        });
+        if(status){
             selectAll.prop("checked",true);
         }
+        */
     }else{
         selectAll.prop("checked",false);
     }
@@ -89,7 +96,8 @@ cartCountPlus.on("click",function(){
 });
 
 //수량 입력 시 입력값만큼 변경
-cartCountVal.on("change",function(){
+cartCountVal.on("change",function(e){
+    
     if($(this).val()!=Number($(this).val())){
         //입력값이 숫자가 아니면 1개로 초기화
         $(this).val(1);
